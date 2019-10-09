@@ -2,7 +2,7 @@
   "name": "etl-events",
   "description": "ETL Events - Pulls data from specific sources",
   "version": "1.0.0",
-  "main": "./dist/main",
+  "main": "./src/main",
   "license": "MIT",
   "scripts": {
     "start": "node ./src/main",
@@ -14,14 +14,14 @@
   },
   "dependencies": {
     "convict": "^4.0.1",
-    "mongoose": "^4.13.1",
+    "mongoose": "^4.13.19",
     "request": "^2.83.0",
     "request-promise-native": "^1.0.5"
   },
   "devDependencies": {
     "eslint": "^4.11.0",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-import": "^2.18.2",
     "eslint-watch": "^3.1.3"
   }
 }
