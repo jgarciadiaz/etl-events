@@ -1,12 +1,6 @@
 const fs = require('fs');
+const { promisify } = require('util');
 
-const readFile = file => new Promise((resolve, reject) => {
-  fs.readFile(file, 'utf-8', (error, data) => {
-    if (error) {
-      return reject(new Error(error));
-    }
-    return resolve(data);
-  });
-});
+const readFile = promisify(fs.readFile);
 
 module.exports = readFile;

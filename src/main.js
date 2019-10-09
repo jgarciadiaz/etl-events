@@ -10,7 +10,6 @@ mongoose.Promise = global.Promise;
 const props = {
   isProduction: config.get('env') === 'production',
   url: 'https://partner-api.groupon.com/deals.json?tsToken=US_AFF_0_201236_212556_0&offset=0&limit=20&filters=category:things-to-do',
-  file: './samples/grpn.json',
   apiUrl: config.get('api.url'),
 };
 
@@ -23,12 +22,17 @@ const getEvent = event => ({
 });
 
 const transform = html => {
-  const data = JSON.parse(html);
-  return data.deals && data.deals.length ? data.deals.map(getEvent) : [];
+  const { deals } = JSON.parse(html) || {};
+
+  if (Array.isArray(deals)) {
+    return deals.map(getEvent)
+  }
+
+  return []
 };
 
 extract(props)
   .then(transform)
   .then(events => load(props, events))
   .then(printReport)
-  .catch(console.log);
+  .catch(console.error);
