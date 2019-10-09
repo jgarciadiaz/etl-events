@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "convict": "^4.0.1",
-    "mongoose": "^4.13.19",
     "request": "^2.83.0",
     "request-promise-native": "^1.0.5"
   },

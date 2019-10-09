@@ -1,11 +1,7 @@
-const mongoose = require('mongoose');
-
 const config = require('./config');
 const extract = require('./util/extract');
 const load = require('./util/load');
 const printReport = require('./util/printReport');
-
-mongoose.Promise = global.Promise;
 
 const props = {
   isProduction: config.get('env') === 'production',
@@ -33,6 +29,6 @@ const transform = html => {
 
 extract(props)
   .then(transform)
-  .then(events => load(props, events))
+  .then(load)
   .then(printReport)
   .catch(console.error);

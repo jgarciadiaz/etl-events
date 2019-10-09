@@ -1,13 +1,15 @@
 const request = require('request-promise-native');
 
-const load = (props, events) => {
-  if (!events.length) {
+const config = require('../config.js');
+
+const load = (events) => {
+  if (!Array.isArray(events) || !events.length) {
     return null
   }
 
   const options = {
     method: 'POST',
-    uri: `${props.apiUrl}/events`,
+    uri: `${config.get('api.url')}/events`,
     body: {
       events
     },

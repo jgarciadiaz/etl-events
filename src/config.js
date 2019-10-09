@@ -28,6 +28,14 @@ const config = convict({
       env: 'API_URL',
     }
   },
+  resource: {
+    groupon: {
+      doc: 'GRPN Resource',
+      format: String,
+      default: 'https://partner-api.groupon.com/deals.json?tsToken=US_AFF_0_201236_212556_0&offset=0&limit=20&filters=category:things-to-do',
+      env: 'RESOURCE_GRPN',
+    }
+  },
   db: {
     url: {
       doc: 'Database host name/IP',
