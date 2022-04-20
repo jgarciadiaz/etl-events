@@ -13,7 +13,7 @@
     "docker:pull": "docker pull jgarciadiaz/etl-events"
   },
   "dependencies": {
-    "convict": "^4.0.1",
+    "convict": "^6.2.2",
     "request": "^2.83.0",
     "request-promise-native": "^1.0.5"
   },
